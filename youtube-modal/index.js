@@ -35,7 +35,6 @@
       const max = Math.max(from, to);
       const min = Math.min(from, to);
       const step = (max - min) / count;
-      console.log(min === to);
       allAnimation.push({
         style,
         from,
@@ -102,7 +101,7 @@ function init() {
   ];
 
   function sizeVideo() {
-    const sizeBlock = sizeBlockList.find(item => item[0] < window.visualViewport.width) ||
+    const sizeBlock = sizeBlockList.find(item => item[0] < window.innerWidth) ||
       sizeBlockList[sizeBlockList.length - 1];
 
     const iframe = document.getElementById('youtube-modal');
@@ -112,13 +111,12 @@ function init() {
 			width: ${sizeBlock[0]};
 			height: ${sizeBlock[1]};
 		`;
-
   }
 
   function sizeContainer() {
 
-    const wh = window.visualViewport.height;
-    const ww = window.visualViewport.width;
+    const wh = window.innerHeight;
+    const ww = window.innerWidth;
     const fw = video.style.width;
     const fh = video.style.height;
 
